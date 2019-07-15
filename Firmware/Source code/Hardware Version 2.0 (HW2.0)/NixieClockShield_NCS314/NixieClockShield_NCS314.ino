@@ -321,6 +321,9 @@ bool GPS_sync_flag=false;
 /*******************************************************************************************************
   Init Programm
 *******************************************************************************************************/
+
+bool skipStartTest = true;
+
 void setup()
 {
   Wire.begin();
@@ -382,7 +385,7 @@ void setup()
   downButton.longClickTime  = 2000; // time until "held-down clicks" register
 
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  doTest();
+  if(!skipStartTest) doTest();
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   if (LEDsLock == 1)
   {
